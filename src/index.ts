@@ -130,7 +130,7 @@ client.on('message', async (msg: Message) => {
         }
     }
 
-    / Reset chat history
+    // Reset chat history
     if (msg.body.toLowerCase() === '@reset') {
         chatHistory.delete(senderId);
         const resetMessage = await msg.reply('Chat history telah direset! 🔄');
