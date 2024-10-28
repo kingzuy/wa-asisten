@@ -21,6 +21,12 @@ Bot WhatsApp yang diintegrasikan dengan Google Gemini AI untuk memberikan respon
 
 1. Clone repositori ini:
 ```bash
-git clone <repository-url>
-cd <repository-name>
+git clone https://github.com/kingzuy/wa-asisten.git
+cd wa-asisten
 ```
+
+2. Install dependencies:
+```bash
+npm install
+```
+3. Buat file `.env` dan tambahkan API key Gemini:
