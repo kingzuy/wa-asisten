@@ -31,7 +31,7 @@ npm install
 ```
 3. Buat file `.env` dan tambahkan API key Gemini:
 ```.env
-Jalankan aplikasi:
+GEMINI_API_KEY:<KEY_GEMINI>
 ```
 4. Jalankan aplikasi:
 ```bash
