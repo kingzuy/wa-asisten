@@ -42,11 +42,14 @@ npm start
 
 Setelah menjalankan aplikasi, scan QR code yang muncul di terminal menggunakan WhatsApp di smartphone Anda.
 
+Perintah yang Tersedia
 | Perintah | Fungsi | Contoh |
-|:--|:--:|--:|
+|:--:|:--:|:--:|
 | `@ask` | Bertanya kepada AI | `@ask Apa itu JavaScript?` |
 | `@ping` | Mengecek bot aktif | `@ping` |
 | `@reset` | Mereset history chat | `@reset` |
 | `@group` | Menampilkan info grup | `@group` |
 | `@everyone` | Mention semua member (admin only) | `@everyone` |
 | `@help` | Menampilkan bantuan | `@help` |
+
+
