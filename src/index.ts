@@ -111,7 +111,10 @@ client.on('message', async (msg: Message) => {
         } catch (error) {
             console.error('Error in message handling:', error);
             await msg.react(''); // Hapus reaksi jam pasir jika terjadi error
-            msg.reply('Maaf, terjadi kesalahan saat memproses pertanyaan Anda.');
+            const errorMessage = await msg.reply('Maaf, terjadi kesalahan saat memproses pertanyaan Anda.');
+            if (errorMessage) {
+                await errorMessage.react('❌'); // Reaksi silang untuk pesan error
+            }
         }
     }
 
@@ -127,22 +130,31 @@ client.on('message', async (msg: Message) => {
         }
     }
 
-    // Reset chat history
+    / Reset chat history
     if (msg.body.toLowerCase() === '@reset') {
         chatHistory.delete(senderId);
-        msg.reply('Chat history telah direset! 🔄');
+        const resetMessage = await msg.reply('Chat history telah direset! 🔄');
+        if (resetMessage) {
+            await resetMessage.react('🔄');
+        }
     }
 
     // Contoh auto-reply
     if (msg.body.toLowerCase() === '@ping') {
-        msg.reply('pong');
+        const pongMessage = await msg.reply('pong');
+        if (pongMessage) {
+            await pongMessage.react('🏓');
+        }
     }
 
     // Contoh mengirim pesan ke grup
     if (msg.body.toLowerCase() === '@group') {
         if (chat.isGroup) {
             const groupChat = chat as GroupChat;
-            msg.reply(`Group Info:\nNama: ${groupChat.name}`);
+            const groupInfoMessage = await msg.reply(`Group Info:\nNama: ${groupChat.name}`);
+            if (groupInfoMessage) {
+                await groupInfoMessage.react('ℹ️');
+            }
         }
     }
 
@@ -161,11 +173,17 @@ client.on('message', async (msg: Message) => {
                 const idsString = participants.map(p => `@${p.id._serialized.slice(0, -5)}`).join(' ');
                 const mentions = participants.map(p => p.id._serialized);
 
-                await groupChat.sendMessage(`Hello everyone! ${idsString}`, {
+                const everyoneMessage = await groupChat.sendMessage(`Hello everyone! ${idsString}`, {
                     mentions: mentions
                 });
+                if (everyoneMessage) {
+                    await everyoneMessage.react('👋');
+                }
             } else {
-                msg.reply('Hanya admin yang dapat menggunakan perintah ini.');
+                const notAdminMessage = await msg.reply('Hanya admin yang dapat menggunakan perintah ini.');
+                if (notAdminMessage) {
+                    await notAdminMessage.react('🚫');
+                }
             }
         }
     }
@@ -174,13 +192,17 @@ client.on('message', async (msg: Message) => {
     if (msg.body.toLowerCase() === '@help') {
         const helpMessage = `
 *Available Commands:*
-!ask [pertanyaan] - Tanya apa saja ke AI
-!ping - Test bot
-!group - Tampilkan info grup (dalam grup)
-!everyone - Mention semua member (dalam grup)
-!help - Tampilkan bantuan ini
+@ask [pertanyaan] - Tanya apa saja ke AI
+@ping - Test bot
+@group - Tampilkan info grup (dalam grup)
+@everyone - Mention semua member (dalam grup)
+@help - Tampilkan bantuan ini
+@reset - Reset chat history
         `.trim();
-        msg.reply(helpMessage);
+        const sentHelpMessage = await msg.reply(helpMessage);
+        if (sentHelpMessage) {
+            await sentHelpMessage.react('📚');
+        }
     }
 });
 
