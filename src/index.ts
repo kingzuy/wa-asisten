@@ -90,14 +90,27 @@ client.on('message', async (msg: Message) => {
     
     // Command untuk bertanya ke AI
     if (msg.body.toLowerCase().startsWith('@ask ')) {
-        const question = msg.body.slice(5); // Menghapus '!ask ' dari pesan
-        msg.reply('Tunggu sebentar, saya sedang berpikir... 🤔');
+        const question = msg.body.slice(5); // Menghapus '@ask ' dari pesan
         
         try {
+            // Reaksi dengan emoji jam pasir
+            await msg.react('⏳');
+            
             const answer = await chatWithGemini(senderId, question);
-            msg.reply(answer);
+            
+            // Hapus reaksi jam pasir
+            await msg.react('');
+            
+            // Kirim jawaban
+            const sentMessage = await msg.reply(answer);
+            
+            // Tambahkan reaksi robot pada pesan yang dikirim
+            if (sentMessage) {
+                await sentMessage.react('🤖');
+            }
         } catch (error) {
             console.error('Error in message handling:', error);
+            await msg.react(''); // Hapus reaksi jam pasir jika terjadi error
             msg.reply('Maaf, terjadi kesalahan saat memproses pertanyaan Anda.');
         }
     }
