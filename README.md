@@ -30,3 +30,23 @@ cd wa-asisten
 npm install
 ```
 3. Buat file `.env` dan tambahkan API key Gemini:
+```.env
+Jalankan aplikasi:
+```
+4. Jalankan aplikasi:
+```bash
+npm start
+```
+
+## 📱 Cara Penggunaan
+
+Setelah menjalankan aplikasi, scan QR code yang muncul di terminal menggunakan WhatsApp di smartphone Anda.
+
+| Perintah | Fungsi | Contoh |
+|:--|:--:|--:|
+| `@ask` | Bertanya kepada AI | `@ask Apa itu JavaScript?` |
+| `@ping` | Mengecek bot aktif | `@ping` |
+| `@reset` | Mereset history chat | `@reset` |
+| `@group` | Menampilkan info grup | `@group` |
+| `@everyone` | Mention semua member (admin only) | `@everyone` |
+| `@help` | Menampilkan bantuan | `@help` |
