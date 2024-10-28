@@ -1,0 +1,12 @@
+# Environment variables
+.env
+
+# Node.js dependencies
+node_modules/
+
+# WhatsApp Web.js authentication and cache
+.wwebjs_auth/
+.wwebjs_cache/
+
+# Ignore package-lock.json
+package-lock.json
