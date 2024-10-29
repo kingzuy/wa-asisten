@@ -37,6 +37,30 @@ GEMINI_API_KEY=<KEY_GEMINI>
 ```bash
 npm start
 ```
+## 🛠️ Instalasi Docker
+
+1. Clone repositori ini:
+```bash
+git clone https://github.com/kingzuy/wa-asisten.git
+cd wa-asisten
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+3. Buat file `.env` dan tambahkan API key Gemini:
+```.env
+GEMINI_API_KEY=<KEY_GEMINI>
+```
+4. Build Docker image:
+```bash
+docker build -t wa-asisten .
+```
+5. Jalankan container Docker:
+```bash
+docker run -it --name wa-asisten-container wa-asisten
+```
 
 ## 📱 Cara Penggunaan
 
