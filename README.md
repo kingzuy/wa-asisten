@@ -69,11 +69,13 @@ Setelah menjalankan aplikasi, scan QR code yang muncul di terminal menggunakan W
 Perintah yang Tersedia
 | Perintah | Fungsi | Contoh |
 |:--:|:--:|:--:|
-| `@ask` | Bertanya kepada AI | `@ask Apa itu JavaScript?` |
-| `@ping` | Mengecek bot aktif | `@ping` |
-| `@reset` | Mereset history chat | `@reset` |
-| `@group` | Menampilkan info grup | `@group` |
-| `@everyone` | Mention semua member (admin only) | `@everyone` |
-| `@help` | Menampilkan bantuan | `@help` |
+| `.ask` | Bertanya kepada AI | `.ask Apa itu JavaScript?` |
+| `.ping` | Mengecek bot aktif | `.ping` |
+| `.reset` | Mereset history chat | `.reset` |
+| `.group` | Menampilkan info grup | `.group` |
+| `.everyone` | Mention semua member (admin only) | `.everyone` |
+| `.kick` | Kick user (admin only) | `.kick @aku` |
+| `.gconly` | Only admin chat (admin only) | `.gconly on atau .gconly off` |
+| `.help` | Menampilkan bantuan | `.help` |
 
 
