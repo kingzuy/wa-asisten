@@ -26,9 +26,7 @@ export async function handleMessage(msg: Message, gemini: Gemini) {
             await handleGroupCommand(msg);
             break;
         case '.all':
-            if (text.startsWith('.all ')) {
-                await handleAllCommand(msg);
-            }
+            await handleAllCommand(msg);
             break;
         case '.help':
             await handleHelpCommand(msg);
